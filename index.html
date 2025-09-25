@@ -3,104 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patience Watimudhara - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Patience Watimudhara - Developer & Designer</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Patience W.</div>
-            <ul>
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+    <header class="main-header">
+        <nav class="nav container">
+            <a href="#" class="logo">Patience Watimudhara</a>
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Web Projects</a></li>
+                <li><a href="#designs">Design Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="burger" id="burger-menu">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
         </nav>
     </header>
 
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span class="highlight">Patience Watimudhara</span></h1>
-            <p>A passionate [Your Profession, e.g., Web Developer, Graphic Designer, Data Scientist] creating modern and engaging digital experiences.</p>
-            <a href="#projects" class="btn">View My Work</a>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I'm a [Your Profession] with [Number] years of experience in [Your Field]. My expertise lies in [mention key skills, e.g., front-end development, UI/UX design, backend systems]. I love bringing ideas to life through clean, efficient, and user-friendly solutions. I'm always eager to learn new technologies and take on challenging projects.</p>
-            <p>Outside of work, I enjoy [mention hobbies or interests, e.g., hiking, reading, photography].</p>
-            <div class="skills-grid">
-                <div class="skill-item">HTML5</div>
-                <div class="skill-item">CSS3</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">React</div>
-                <div class="skill-item">Node.js</div>
-                <div class="skill-item">UI/UX Design</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x250/333/eee?text=Project+One" alt="Project One">
-                    <h3>Project Title One</h3>
-                    <p>A brief description of Project One, highlighting key features and technologies used.</p>
-                    <a href="#" target="_blank" class="project-link">View Project</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x250/333/eee?text=Project+Two" alt="Project Two">
-                    <h3>Project Title Two</h3>
-                    <p>A brief description of Project Two, highlighting key features and technologies used.</p>
-                    <a href="#" target="_blank" class="project-link">View Project</a>
-                </div>
-                <div class="project-card">
-                    <img src="https://via.placeholder.com/400x250/333/eee?text=Project+Three" alt="Project Three">
-                    <h3>Project Title Three</h3>
-                    <p>A brief description of Project Three, highlighting key features and technologies used.</p>
-                    <a href="#" target="_blank" class="project-link">View Project</a>
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="text-side">
+                <p class="greeting">Hello, I'm</p>
+                <h1>Patience Watimudhara.</h1>
+                <h2>A **Web Developer** & **Designer**</h2>
+                <p>Hello! I'm a web developer driven by a passion for crafting engaging and effective online solutions. I thrive on the challenge of transforming ideas into functional, beautiful websites and applications. Always learning and embracing new technologies, I'm committed to refining my skills to deliver exceptional digital experiences.</p>
+                <p>I transform complex ideas into simple, beautiful, and highly functional digital solutions, blending technical skill with creative design.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary-btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Let's Talk</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Have a project in mind or just want to say hello? Feel free to reach out!</p>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
-            <div id="form-status"></div>
+            <div class="image-side">
+                 <img src="images/profile.png" alt="Patience Watimudhara Profile" class="profile-img">
+            </div>
         </div>
     </section>
     
+    <section id="qualifications" class="qualifications section-padding">
+        <div class="container">
+            <h2 class="section-title">Academic & Professional Journey</h2>
+            <p class="subtitle">A timeline of my education and key experiences.</p>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>BTech Honours Degree in Electronic Commerce</h3>
+                        <h4>Harare Institute of Technology</h4>
+                        <p class="date-range">2019 - 2024</p>
+                        <p>Specialized in Web development, database management, and object-oriented programming. Gained strong foundations in e-commerce strategy and digital solution delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Ecommerce Department Intern</h3>
+                        <h4>Harare Institute of Technology</h4>
+                        <p class="date-range">Jan 2023 - August 2023</p>
+                        <p>Developed an internship management system for student registration using HTML, PHP, and MySQL, including full database management.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Web Developer</h3>
+                        <h4>Suwani Pvt Limited</h4>
+                        <p class="date-range">Feb 2024 - Present</p>
+                        <p>Developed websites using WordPress, performed website maintenance, and implemented technical SEO strategies to improve client site search engine rankings.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <i class="fas fa-desktop icon-large"></i>
+                    <h3>Front-End</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript </li>
+                        <li>Responsive Design</li>
+                        <li>UI/UX Principles</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-server icon-large"></i>
+                    <h3>Back-End & DB</h3>
+                    <ul>
+                        <li>Python (Django/Flask)</li>
+                        <li>PHP (Laravel)</li>
+                        <li>MySQL </li>
+                        
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-palette icon-large"></i>
+                    <h3>Design & Tools</h3>
+                    <ul>
+                        <li>Figma / Adobe XD</li>
+                        <li>Photoshop / Illustrator</li>
+                        <li>WordPress / SEO</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="portfolio section-padding">
+        <div class="container">
+            <h2 class="section-title">Web Projects</h2>
+            <p class="subtitle">Showcasing fully functional, end-to-end web applications.</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="images/oven delights.png" alt="Cake Shop Website">
+                    <h3>Cake Shop Website</h3>
+                    <p>Informative and advertising confectionery site built with WordPress and Elementor.</p>
+                    <div class="project-links">
+                        <a href="http://ovendelights.great-site.net/" target="_blank" class="project-link"><i class="fas fa-eye"></i> Live Demo</a>
+                        <a href="https://github.com/yourusername/project1" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="images/zari.png" alt="Lodge Booking Website">
+                    <h3>Lodge Booking Website</h3>
+                    <p>Accommodation booking system with availability checking and secure reservations.</p>
+                    <div class="project-links">
+                        <a href="https://zarivaallodge.co.za/" target="_blank" class="project-link"><i class="fas fa-eye"></i> Live Demo</a>
+                        <a href="https://github.com/yourusername/project2" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="images/infinitacode.png" alt="InfinitaCode Website">
+                    <h3>InfinitaCode Website</h3>
+                    <p>IT solutions provider network site focusing on service offerings and client testimonials.</p>
+                    <div class="project-links">
+                        <a href="#" target="_blank" class="project-link"><i class="fas fa-eye"></i> Live Demo</a>
+                        <a href="https://github.com/yourusername/project3" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="designs" class="designs section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title">Creative Designs</h2>
+            <p class="subtitle">A selection of graphic work including branding and promotional materials.</p>
+            <div class="project-grid">
+                
+                <div class="project-card design-card">
+                    <a href="#" onclick="openModal('images/SPRING-DEALS-lg.png', event)" data-img="images/SPRING-DEALS-lg.png">
+                        <img src="images/SPRING DEALS - Copy.png" alt="Promotional Flyer Design">
+                        <h3>Promotional Flyer</h3>
+                        <p>Modern, high-impact flyer designed for a tech event launch.</p>
+                    </a>
+                </div>
+                
+                <div class="project-card design-card">
+                    <a href="#" onclick="openModal('images/infinitacode-lg.png', event)" data-img="images/infinitacode-lg.png">
+                        <img src="images/infinitacode.png" alt="Company Logo Design">
+                        <h3> Logo Design</h3>
+                        <p>Minimalist and memorable logo crafted for a new e-commerce brand.</p>
+                    </a>
+                </div>
+                
+                <div class="project-card design-card">
+                    <a href="#" onclick="openModal('images/blueprint-lg.jpg', event)" data-img="images/blueprint-lg.jpg">
+                        <img src="images/blueprint.jpg" alt="Advertising Flyer Design">
+                        <h3>Advertising Flyer</h3>
+                        <p>Vibrant, large-format poster for an international music festival.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="designModal" class="modal" onclick="closeModal()">
+        <span class="close-btn" title="Close Modal">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" alt="Enlarged Creative Design">
+        </div>
+    </div>
+    <section id="contact" class="contact section-padding">
+        <div class="container contact-grid">
+            <div class="contact-form-col">
+                <h2 class="section-title">Get In Touch</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Send Message</button>
+                </form>
+                <div id="form-status"></div>
+            </div>
+            <div class="contact-info-col">
+                <h3>Contact Details</h3>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p><a href="mailto:pwatimudhara@gmail.com">pwatimudhara@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p><a href="tel:+263786149821">+263 786 149 821</a></p>
+                </div>
+                <h3>Connect</h3>
+                <div class="social-contact-links">
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/patience-watimudhara" target="_blank" title="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://twitter.com/patience_dev" target="_blank" title="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <p>&copy; 2025 Patience Watimudhara. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" target="_blank">LinkedIn</a>
-                <a href="#" target="_blank">GitHub</a>
-                <a href="#" target="_blank">Twitter</a>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/patience199-web" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/patience_dev" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
