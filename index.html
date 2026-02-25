@@ -1,253 +1,992 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patience Watimudhara - Developer & Designer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Alex Rivera · portfolio (project backgrounds)</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #faf9fc;
+            color: #1e1b2b;
+            line-height: 1.5;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        /* dark mode styles */
+        body.dark {
+            background-color: #12101a;
+            color: #eae6f2;
+        }
+
+        body.dark .card,
+        body.dark .skill-tag,
+        body.dark .qualification-item,
+        body.dark .contact-card {
+            background-color: #221f2e;
+            border-color: #332e42;
+            color: #ddd8ec;
+        }
+
+        /* project cards have their own dark override (semi-transparent) */
+        body.dark .btn-outline {
+            border-color: #524b6b;
+            color: #cfc9e6;
+        }
+
+        body.dark .footer {
+            border-color: #2a2538;
+        }
+
+        body.dark .hero-badge {
+            background: #332d4a;
+            color: #cbb9ff;
+        }
+
+        body.dark .avatar-box {
+            background: #2c2640;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* header / nav */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #7a5af5, #c75af5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: inherit;
+            font-size: 1rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid #cdc6dc;
+            border-radius: 40px;
+            padding: 0.4rem 0.9rem;
+            font-size: 1rem;
+            cursor: pointer;
+            color: inherit;
+            background-color: transparent;
+            transition: 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        body.dark .theme-toggle {
+            border-color: #5f547b;
+        }
+
+        /* hero */
+        .hero {
+            padding: 2rem 0 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1 1 350px;
+        }
+
+        .hero-badge {
+            background: #e7e1fa;
+            color: #4b2fa5;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(145deg, #7449f5, #d06df5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #4d4760;
+            max-width: 520px;
+            margin-bottom: 1.8rem;
+        }
+
+        body.dark .hero-subtitle {
+            color: #b4abcc;
+        }
+
+        .hero-avatar {
+            flex: 0 0 260px;
+            text-align: center;
+        }
+
+        .avatar-box {
+            background: linear-gradient(145deg, #dacfff, #f3eaff);
+            border-radius: 38% 62% 62% 38% / 42% 50% 50% 58%;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 30px 35px -20px #b59ed6;
+        }
+
+        .avatar-box i {
+            font-size: 7rem;
+            color: #5b3ec9;
+            opacity: 0.9;
+        }
+
+        body.dark .avatar-box i {
+            color: #b19cf5;
+        }
+
+        /* section general */
+        .section {
+            padding: 3.5rem 0 2rem 0;
+            scroll-margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title i {
+            background: #7449f5;
+            color: white;
+            border-radius: 50%;
+            padding: 0.4rem;
+            font-size: 1.2rem;
+        }
+
+        /* about grid */
+        .about-grid {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 2 1 300px;
+            font-size: 1.1rem;
+        }
+
+        .about-highlight {
+            background: #eee8ff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        body.dark .about-highlight {
+            background: #35304b;
+        }
+
+        .about-stats {
+            flex: 1 1 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .stat-block {
+            background: rgba(116, 73, 245, 0.06);
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+        }
+
+        body.dark .stat-block {
+            background: #282438;
+        }
+
+        .stat-number-lg {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #4b2fa5;
+        }
+
+        body.dark .stat-number-lg {
+            color: #bba6ff;
+        }
+
+        /* skills */
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag-large {
+            background: #f0ebfc;
+            color: #2d2342;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: 0.1s;
+        }
+
+        body.dark .skill-tag-large {
+            background: #312e45;
+            color: #ded2ff;
+        }
+
+        /* ---------- SLIDING CAROUSEL (projects & designs) ---------- */
+        .carousel-section {
+            position: relative;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .carousel-container {
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #b6a9da #f0eaff;
+            padding: 0.5rem 0.25rem 1.5rem 0.25rem;
+            margin: 0 -0.5rem;
+            cursor: grab;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel-container:active {
+            cursor: grabbing;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-container::-webkit-scrollbar-track {
+            background: #f0eaff;
+            border-radius: 20px;
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: #b6a9da;
+            border-radius: 20px;
+        }
+
+        body.dark .carousel-container::-webkit-scrollbar-track {
+            background: #2a2538;
+        }
+
+        body.dark .carousel-container::-webkit-scrollbar-thumb {
+            background: #5f547b;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            padding: 0 0.5rem;
+        }
+
+        /* ---------- PROJECT CARD with BACKGROUND IMAGE ---------- */
+        .project-card {
+            width: 300px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            margin-bottom: 0.2rem;
+            border-radius: 28px;
+            background: white;
+            /* fallback */
+            box-shadow: 0 14px 28px -12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            border: 1px solid #edeaf5;
+            overflow: hidden;
+            color: #1e1b2b;
+        }
+
+        /* dark mode card inner background */
+        body.dark .project-card {
+            border-color: #4a3f60;
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            /* subtle watermark effect */
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.25;
+            /* slightly more visible on hover */
+        }
+
+        /* unique background images for each project (set via inline style or here as fallback) */
+        .project-card[data-bg="lodge"]::before {
+            background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=300&auto=format');
+        }
+
+        .project-card[data-bg="gaming"]::before {
+            background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=300&auto=format');
+        }
+
+        .project-card[data-bg="bloom"]::before {
+            background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&auto=format');
+        }
+
+        .project-card[data-bg="eco"]::before {
+            background-image: url('https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=300&auto=format');
+        }
+
+        .project-card[data-bg="chatter"]::before {
+            background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&auto=format');
+        }
+
+        .project-card[data-bg="findash"]::before {
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&auto=format');
+        }
+
+        .project-card[data-bg="zarivaal-ui"]::before {
+            background-image: url('https://images.unsplash.com/photo-1618221195710-dd0b2e9b5e61?w=300&auto=format');
+        }
+
+        .project-card[data-bg="esports-ui"]::before {
+            background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?w=300&auto=format');
+        }
+
+        .project-card[data-bg="bloom-ui"]::before {
+            background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=300&auto=format');
+        }
+
+        .project-card[data-bg="eco-ui"]::before {
+            background-image: url('https://images.unsplash.com/photo-1621451537084-4822a3a2213f?w=300&auto=format');
+        }
+
+        .project-card[data-bg="foodie"]::before {
+            background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=300&auto=format');
+        }
+
+        .project-card[data-bg="corporate"]::before {
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=300&auto=format');
+        }
+
+        /* inner content must sit above the pseudo background */
+        .project-card>* {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* semi‑transparent overlay to improve text readability */
+        .project-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(2px);
+            z-index: 1;
+            pointer-events: none;
+            transition: background 0.2s;
+        }
+
+        body.dark .project-card::after {
+            background: rgba(18, 16, 26, 0.8);
+            backdrop-filter: blur(2px);
+        }
+
+        .project-card:hover::after {
+            background: rgba(255, 255, 255, 0.65);
+        }
+
+        body.dark .project-card:hover::after {
+            background: rgba(18, 16, 26, 0.7);
+        }
+
+        .project-icon {
+            background: #f1ebff;
+            border-radius: 40px;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.4rem;
+            font-size: 1.8rem;
+            color: #5a3bc4;
+            position: relative;
+            z-index: 3;
+        }
+
+        body.dark .project-icon {
+            background: #3f3560;
+            color: #dac6ff;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 650;
+            margin-bottom: 0.6rem;
+        }
+
+        .project-desc {
+            opacity: 0.85;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .skill-tag {
+            background: #f0ebfc;
+            color: #2d2342;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        body.dark .skill-tag {
+            background: #312e45;
+            color: #ded2ff;
+        }
+
+        .project-link {
+            color: inherit;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .project-link:hover {
+            border-bottom-color: #7449f5;
+            color: #7449f5;
+        }
+
+        /* navigation arrows */
+        .carousel-arrows {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            margin-top: -0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .carousel-arrow {
+            background: white;
+            border: 1px solid #e1d9f0;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.15s;
+            color: #4b3b6b;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            font-size: 1.2rem;
+        }
+
+        body.dark .carousel-arrow {
+            background: #282438;
+            border-color: #4a3f60;
+            color: #cfc1f0;
+        }
+
+        .carousel-arrow:hover {
+            background: #f5f0ff;
+            border-color: #7449f5;
+            color: #7449f5;
+            transform: scale(1.05);
+        }
+
+        body.dark .carousel-arrow:hover {
+            background: #3d3357;
+        }
+
+        /* qualifications, contact etc unchanged */
+        .qual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .qualification-item {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #f0ebf8;
+            box-shadow: 0 12px 24px -12px rgba(80, 60, 130, 0.1);
+        }
+
+        .qual-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .qual-meta {
+            font-size: 0.95rem;
+            opacity: 0.7;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .contact-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            flex: 1 1 200px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #edeaf5;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: #7449f5;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0 3rem;
+            border-top: 1px solid #e2d9f0;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.6rem;
+            font-size: 1.3rem;
+        }
+
+        .social-links a {
+            color: inherit;
+            transition: 0.15s;
+        }
+
+        .social-links a:hover {
+            color: #7449f5;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <header class="main-header">
-        <nav class="nav container">
-            <a href="#" class="logo">Patience Watimudhara</a>
-            <ul class="nav-list">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#qualifications">Qualifications</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Web Projects</a></li>
-                <li><a href="#designs">Design Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="burger" id="burger-menu">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">Patience Watimudhara</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#designs">Designs</a>
+                <a href="#qualifications">Qualifications</a>
+                <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="dark mode toggle">
+                    <i class="fa-regular fa-moon"></i> <span>Dark</span>
+                </button>
             </div>
         </nav>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <div class="text-side">
-                <p class="greeting">Hello, I'm</p>
-                <h1>Patience Watimudhara.</h1>
-                <h2>A **Web Developer** & **Designer**</h2>
-                <p>Hello! I'm a web developer driven by a passion for crafting engaging and effective online solutions. I thrive on the challenge of transforming ideas into functional, beautiful websites and applications. Always learning and embracing new technologies, I'm committed to refining my skills to deliver exceptional digital experiences.</p>
-                <p>I transform complex ideas into simple, beautiful, and highly functional digital solutions, blending technical skill with creative design.</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn primary-btn">View My Work</a>
-                    <a href="#contact" class="btn secondary-btn">Let's Talk</a>
-                </div>
+        <!-- hero (unchanged) -->
+        <div class="hero">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fa-regular fa-star" style="margin-right: 0.3rem;"></i> open to
+                    work</span>
+                <h1>design & code <span class="hero-highlight">with clarity</span></h1>
+                <p class="hero-subtitle">
+                <h3>Patience Watimudhara | Full-Stack Web Developer for the Modern Web.</h3>
+                </p>
+                Bridging the Gap Between Pixel-Perfect Design and Robust Architecture.<br />
+                <a href="#contact" class="btn-outline"
+                    style="display: inline-flex; align-items: center; gap: 0.4rem; border:1.5px solid currentColor; border-radius:40px; padding:0.7rem 2rem; text-decoration:none;"><i
+                        class="fa-regular fa-paper-plane"></i> Let's connect</a>
             </div>
-            <div class="image-side">
-                 <img src="images/profile.png" alt="Patience Watimudhara Profile" class="profile-img">
-            </div>
-        </div>
-    </section>
-    
-    <section id="qualifications" class="qualifications section-padding">
-        <div class="container">
-            <h2 class="section-title">Academic & Professional Journey</h2>
-            <p class="subtitle">A timeline of my education and key experiences.</p>
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>BTech Honours Degree in Electronic Commerce</h3>
-                        <h4>Harare Institute of Technology</h4>
-                        <p class="date-range">2019 - 2024</p>
-                        <p>Specialized in Web development, database management, and object-oriented programming. Gained strong foundations in e-commerce strategy and digital solution delivery.</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Ecommerce Department Intern</h3>
-                        <h4>Harare Institute of Technology</h4>
-                        <p class="date-range">Jan 2023 - August 2023</p>
-                        <p>Developed an internship management system for student registration using HTML, PHP, and MySQL, including full database management.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Web Developer</h3>
-                        <h4>Suwani Pvt Limited</h4>
-                        <p class="date-range">Feb 2024 - Present</p>
-                        <p>Developed websites using WordPress, performed website maintenance, and implemented technical SEO strategies to improve client site search engine rankings.</p>
-                    </div>
-                </div>
-
+            <div class="hero-avatar">
+                <div class="avatar-box"><i class="fa-regular fa-face-smile-wink"></i></div>
             </div>
         </div>
-    </section>
 
-    <section id="skills" class="skills section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <i class="fas fa-desktop icon-large"></i>
-                    <h3>Front-End</h3>
-                    <ul>
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript </li>
-                        <li>Responsive Design</li>
-                        <li>UI/UX Principles</li>
-                    </ul>
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section">
+            <div class="section-title"><i class="fa-solid fa-user"></i><span>About me</span></div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p style="margin-bottom: 1.5rem;">I am a Frontend Developer with <span class="about-highlight">2
+                            years of experience</span> building responsive, user-centric web applications. Having spent
+                        my early career mastering the art of crafting seamless interfaces with React and Tailwind CSS,
+                        I’ve developed a keen eye for clean code, accessibility, and intuitive UX.</p>
+                    <p>While my roots are in the frontend, I’m a firm believer that the best developers understand the
+                        entire ecosystem. I am currently expanding my expertise into back-end technologies specifically
+                        Node.js, Express, and PostgreSQL to better understand how data flows through an application.</p>
+                    <p>My goal is to transition into a Full-Stack role where I can bridge the gap between elegant design
+                        and robust logic. I’m looking to leverage my frontend precision with a growing backend toolkit
+                        to build high-performance, end-to-end digital solutions from the ground up</p>
                 </div>
-                <div class="skill-category">
-                    <i class="fas fa-server icon-large"></i>
-                    <h3>Back-End & DB</h3>
-                    <ul>
-                        <li>Python (Django/Flask)</li>
-                        <li>PHP (Laravel)</li>
-                        <li>MySQL </li>
-                        
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <i class="fas fa-palette icon-large"></i>
-                    <h3>Design & Tools</h3>
-                    <ul>
-                        <li>Figma / Adobe XD</li>
-                        <li>Photoshop / Illustrator</li>
-                        <li>WordPress / SEO</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="portfolio section-padding">
-        <div class="container">
-            <h2 class="section-title">Web Projects</h2>
-            <p class="subtitle">Showcasing fully functional, end-to-end web applications.</p>
-            <div class="project-grid">
-                <div class="project-card">
-                    <img src="images/oven delights.png" alt="Cake Shop Website">
-                    <h3>Cake Shop Website</h3>
-                    <p>Informative and advertising confectionery site built with WordPress and Elementor.</p>
-                    <div class="project-links">
-                        <a href="http://ovendelights.great-site.net/" target="_blank" class="project-link"><i class="fas fa-eye"></i> Live Demo</a>
-                        <a href="https://github.com/yourusername/project1" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
+                <div class="about-stats">
+                    <div class="stat-block">
+                        <div class="stat-number-lg">3+</div>
+                        <div>Completed projects</div>
                     </div>
-                </div>
-                <div class="project-card">
-                    <img src="images/zari.png" alt="Lodge Booking Website">
-                    <h3>Lodge Booking Website</h3>
-                    <p>Accommodation booking system with availability checking and secure reservations.</p>
-                    <div class="project-links">
-                        <a href="https://zarivaallodge.co.za/" target="_blank" class="project-link"><i class="fas fa-eye"></i> Live Demo</a>
-                        <a href="https://github.com/yourusername/project2" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <img src="images/infinitacode.png" alt="InfinitaCode Website">
-                    <h3>InfinitaCode Website</h3>
-                    <p>IT solutions provider network site focusing on service offerings and client testimonials.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="project-link"><i class="fas fa-eye"></i> Live Demo</a>
-                        <a href="https://github.com/yourusername/project3" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
+                    <div class="stat-block">
+                        <div class="stat-number-lg">6</div>
+                        <div>Technologies mastered</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="designs" class="designs section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title">Creative Designs</h2>
-            <p class="subtitle">A selection of graphic work including branding and promotional materials.</p>
-            <div class="project-grid">
-                
-                <div class="project-card design-card">
-                    <a href="#" onclick="openModal('images/SPRING-DEALS-lg.png', event)" data-img="images/SPRING-DEALS-lg.png">
-                        <img src="images/SPRING DEALS - Copy.png" alt="Promotional Flyer Design">
-                        <h3>Promotional Flyer</h3>
-                        <p>Modern, high-impact flyer designed for a tech event launch.</p>
-                    </a>
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="section">
+            <div class="section-title"><i class="fa-solid fa-code"></i><span>Skills & expertise</span></div>
+            <div class="skills-cloud">
+                <span class="skill-tag-large">UX research</span><span class="skill-tag-large">Figma</span><span
+                    class="skill-tag-large">React</span><span class="skill-tag-large">Tailwind</span>
+                <span class="skill-tag-large">Prototyping</span><span class="skill-tag-large">HTML/CSS</span><span
+                    class="skill-tag-large">JavaScript</span>
+                <span class="skill-tag-large">Python</span><span class="skill-tag-large">PHP</span>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS with background images (data-bg sets the image) -->
+        <section id="projects" class="section">
+            <div class="section-title"><i class="fa-regular fa-folder-open"></i><span>Featured projects</span></div>
+            <div class="carousel-section">
+                <div class="carousel-arrows">
+                    <div class="carousel-arrow" id="projectsLeft"><i class="fa-regular fa-chevron-left"></i></div>
+                    <div class="carousel-arrow" id="projectsRight"><i class="fa-regular fa-chevron-right"></i></div>
                 </div>
-                
-                <div class="project-card design-card">
-                    <a href="#" onclick="openModal('images/infinitacode-lg.png', event)" data-img="images/infinitacode-lg.png">
-                        <img src="images/infinitacode.png" alt="Company Logo Design">
-                        <h3> Logo Design</h3>
-                        <p>Minimalist and memorable logo crafted for a new e-commerce brand.</p>
-                    </a>
-                </div>
-                
-                <div class="project-card design-card">
-                    <a href="#" onclick="openModal('images/blueprint-lg.jpg', event)" data-img="images/blueprint-lg.jpg">
-                        <img src="images/blueprint.jpg" alt="Advertising Flyer Design">
-                        <h3>Advertising Flyer</h3>
-                        <p>Vibrant, large-format poster for an international music festival.</p>
-                    </a>
+                <div class="carousel-container" id="projectsCarousel">
+                    <div class="carousel-track">
+                        <!-- each card gets a data-bg attribute matching the CSS rule -->
+                        <div class="project-card" data-bg="lodge">
+                            <div class="project-icon"><i class="fa-regular fa-compass"></i></div>
+                            <div class="project-title">Zarivaal Lodge</div>
+                            <div class="project-desc">Digital presence for a luxury countryside lodge.</div>
+                            <div class="project-tags"><span class="skill-tag">WordPress</span></div>
+                            <a href="https://zarivaallodge.co.za/" class="project-link">case study <i
+                                    class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="gaming">
+                            <div class="project-icon"><i class="fa-regular fa-chart-line"></i></div>
+                            <div class="project-title">Gaming & Wagering</div>
+                            <div class="project-desc">High-octane web platform for esports.</div>
+                            <div class="project-tags"><span class="skill-tag">HTML</span><span
+                                    class="skill-tag">Tailwind</span><span class="skill-tag">JS</span></div>
+                            <a href="https://esportbehub.com/" class="project-link">live demo <i
+                                    class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="bloom">
+                            <div class="project-icon"><i class="fa-regular fa-calendar"></i></div>
+                            <div class="project-title">Bloom health</div>
+                            <div class="project-desc">Telemedicine with accessible components.</div>
+                            <div class="project-tags"><span class="skill-tag">Tailwind</span><span
+                                    class="skill-tag">Next.js</span></div>
+                            <a href="#" class="project-link">case study <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="eco">
+                            <div class="project-icon"><i class="fa-regular fa-gem"></i></div>
+                            <div class="project-title">Eco chain</div>
+                            <div class="project-desc">Blockchain supply chain – green tech award.</div>
+                            <div class="project-tags"><span class="skill-tag">Solidity</span><span
+                                    class="skill-tag">React</span></div>
+                            <a href="#" class="project-link">more <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="chatter">
+                            <div class="project-icon"><i class="fa-regular fa-message"></i></div>
+                            <div class="project-title">Chatterbox AI</div>
+                            <div class="project-desc">Customer support bot with sentiment analysis.</div>
+                            <div class="project-tags"><span class="skill-tag">Python</span><span
+                                    class="skill-tag">Flask</span></div>
+                            <a href="#" class="project-link">demo <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="findash">
+                            <div class="project-icon"><i class="fa-regular fa-chart-pie"></i></div>
+                            <div class="project-title">FinDash</div>
+                            <div class="project-desc">Interactive dashboard for personal finance.</div>
+                            <div class="project-tags"><span class="skill-tag">D3</span><span
+                                    class="skill-tag">React</span></div>
+                            <a href="#" class="project-link">more <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div id="designModal" class="modal" onclick="closeModal()">
-        <span class="close-btn" title="Close Modal">&times;</span>
-        <div class="modal-content">
-            <img id="modalImage" alt="Enlarged Creative Design">
-        </div>
+        <!-- FEATURED DESIGNS with background images -->
+        <section id="designs" class="section">
+            <div class="section-title"><i class="fa-regular fa-pen-to-square"></i><span>Featured Designs</span></div>
+            <div class="carousel-section">
+                <div class="carousel-arrows">
+                    <div class="carousel-arrow" id="designsLeft"><i class="fa-regular fa-chevron-left"></i></div>
+                    <div class="carousel-arrow" id="designsRight"><i class="fa-regular fa-chevron-right"></i></div>
+                </div>
+                <div class="carousel-container" id="designsCarousel">
+                    <div class="carousel-track">
+                        <div class="project-card" data-bg="zarivaal-ui">
+                            <div class="project-icon"><i class="fa-regular fa-compass"></i></div>
+                            <div class="project-title">Zarivaal Lodge (UI)</div>
+                            <div class="project-desc">Complete branding & website design.</div>
+                            <div class="project-tags"><span class="skill-tag">Figma</span><span class="skill-tag">Adobe
+                                    XD</span></div>
+                            <a href="#" class="project-link">case study <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="esports-ui">
+                            <div class="project-icon"><i class="fa-regular fa-chart-line"></i></div>
+                            <div class="project-title">Esports hub (UI/UX)</div>
+                            <div class="project-desc">High-fidelity wireframes & prototypes.</div>
+                            <div class="project-tags"><span class="skill-tag">Figma</span><span
+                                    class="skill-tag">Illustrator</span></div>
+                            <a href="#" class="project-link">design <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="bloom-ui">
+                            <div class="project-icon"><i class="fa-regular fa-calendar"></i></div>
+                            <div class="project-title">Bloom health (design)</div>
+                            <div class="project-desc">Accessible component library.</div>
+                            <div class="project-tags"><span class="skill-tag">WCAG</span><span
+                                    class="skill-tag">Figma</span></div>
+                            <a href="#" class="project-link">story <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="eco-ui">
+                            <div class="project-icon"><i class="fa-regular fa-gem"></i></div>
+                            <div class="project-title">Eco chain (design)</div>
+                            <div class="project-desc">Dashboard UI & user flows.</div>
+                            <div class="project-tags"><span class="skill-tag">Sketch</span></div>
+                            <a href="#" class="project-link">shots <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="foodie">
+                            <div class="project-icon"><i class="fa-regular fa-mobile"></i></div>
+                            <div class="project-title">Foodie app</div>
+                            <div class="project-desc">Mobile-first recipe sharing.</div>
+                            <div class="project-tags"><span class="skill-tag">iOS</span><span
+                                    class="skill-tag">Android</span></div>
+                            <a href="#" class="project-link">design <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                        <div class="project-card" data-bg="corporate">
+                            <div class="project-icon"><i class="fa-regular fa-building"></i></div>
+                            <div class="project-title">Corporate rebrand</div>
+                            <div class="project-desc">Style guide & design system.</div>
+                            <div class="project-tags"><span class="skill-tag">branding</span></div>
+                            <a href="#" class="project-link">showcase <i class="fa-regular fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUALIFICATIONS / CONTACT (unchanged) -->
+        <section id="qualifications" class="section">
+            <div class="section-title"><i class="fa-solid fa-graduation-cap"></i><span>Qualifications</span></div>
+            <div class="qual-grid">
+                <div class="qualification-item"><i class="fa-regular fa-building"
+                        style="font-size:1.8rem; color:#7449f5; margin-bottom:0.8rem;"></i>
+                    <div class="qual-title">B.Tech Honours in Electronic Commerce</div>
+                    <div class="qual-meta"><i class="fa-regular fa-calendar"></i> 2019 – 2024 · Harare Institute of
+                        Technology</div>
+                    <p>Focused on end-to-end development of secure e-business solutions.</p>
+                </div>
+                <div class="qualification-item"><i class="fa-regular fa-file-lines"
+                        style="font-size:1.8rem; color:#7449f5; margin-bottom:0.8rem;"></i>
+                    <div class="qual-title">Google UX Design Certificate</div>
+                    <div class="qual-meta"><i class="fa-regular fa-calendar"></i> 2022 · Coursera</div>
+                    <p>End-to-end design process, portfolios, and design sprints.</p>
+                </div>
+                <div class="qualification-item"><i class="fa-regular fa-cube"
+                        style="font-size:1.8rem; color:#7449f5; margin-bottom:0.8rem;"></i>
+                    <div class="qual-title">Frontend Masters bootcamp</div>
+                    <div class="qual-meta"><i class="fa-regular fa-calendar"></i> 2023 · advanced React & TS</div>
+                    <p>Advanced patterns, state management, and performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="section-title"><i class="fa-regular fa-envelope"></i><span>Contact & links</span></div>
+            <div class="contact-cards">
+                <div class="contact-card"><i class="fa-regular fa-envelope contact-icon"></i>
+                    <div>
+                        <div style="font-weight:600;">Email</div>
+                        <div>pwatimudhara@gmail.com</div>
+                    </div>
+                </div>
+                <div class="contact-card"><i class="fa-regular fa-message contact-icon"></i>
+                    <div>
+                        <div style="font-weight:600;">LinkedIn</div>
+                        <div>/in/patience-watimudhara</div>
+                    </div>
+                </div>
+            </div>
+            <div style="background:#f0eaff; border-radius:60px; padding:2rem; margin-top:1.5rem; text-align:center;">
+                <h3 style="font-size:1.6rem;">Open for opportunities</h3>
+                <p style="margin-bottom:1rem;">Full-time product roles or freelance collaborations.</p>
+                <a href="./PATIENCE_WATIMUDARA_CURRICULUM_VITAE.pdf" target="_blank" download
+                    class="btn-primary"
+                    style="background:linear-gradient(135deg,#7449f5,#b253f5); color:white; padding:0.8rem 2.2rem; border-radius:40px; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem;">
+                    Resume
+                    <i class="fa-regular fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div>© 2025 Patience Watimudhara — built for the job market</div>
+            <div class="social-links"><a href="#"><i class="fa-brands fa-github"></i></a><a href="#"><i
+                        class="fa-brands fa-linkedin-in"></i></a><a href="#"><i class="fa-brands fa-dribbble"></i></a>
+            </div>
+        </footer>
     </div>
-    <section id="contact" class="contact section-padding">
-        <div class="container contact-grid">
-            <div class="contact-form-col">
-                <h2 class="section-title">Get In Touch</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-                    <button type="submit" class="btn primary-btn">Send Message</button>
-                </form>
-                <div id="form-status"></div>
-            </div>
-            <div class="contact-info-col">
-                <h3>Contact Details</h3>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <p><a href="mailto:pwatimudhara@gmail.com">pwatimudhara@gmail.com</a></p>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <p><a href="tel:+263786149821">+263 786 149 821</a></p>
-                </div>
-                <h3>Connect</h3>
-                <div class="social-contact-links">
-                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/patience-watimudhara" target="_blank" title="GitHub"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://twitter.com/patience_dev" target="_blank" title="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Patience Watimudhara. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/patience199-web" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://twitter.com/patience_dev" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </footer>
+    <script>
+        (function () {
+            const toggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const icon = toggle.querySelector('i');
+            const textSpan = toggle.querySelector('span');
 
-    <script src="script.js"></script>
+            const stored = localStorage.getItem('theme');
+            if (stored === 'dark') {
+                body.classList.add('dark');
+                icon.classList.remove('fa-regular', 'fa-moon');
+                icon.classList.add('fa-solid', 'fa-sun');
+                textSpan.innerText = 'Light';
+            } else {
+                body.classList.remove('dark');
+                icon.classList.add('fa-regular', 'fa-moon');
+                icon.classList.remove('fa-solid', 'fa-sun');
+                textSpan.innerText = 'Dark';
+            }
+
+            toggle.addEventListener('click', () => {
+                body.classList.toggle('dark');
+                const isDark = body.classList.contains('dark');
+                if (isDark) {
+                    icon.classList.remove('fa-regular', 'fa-moon');
+                    icon.classList.add('fa-solid', 'fa-sun');
+                    textSpan.innerText = 'Light';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    icon.classList.add('fa-regular', 'fa-moon');
+                    icon.classList.remove('fa-solid', 'fa-sun');
+                    textSpan.innerText = 'Dark';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            function setupCarousel(containerId, leftBtnId, rightBtnId) {
+                const container = document.getElementById(containerId);
+                const leftBtn = document.getElementById(leftBtnId);
+                const rightBtn = document.getElementById(rightBtnId);
+                if (!container || !leftBtn || !rightBtn) return;
+                const scrollAmount = 320;
+                leftBtn.addEventListener('click', () => container.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+                rightBtn.addEventListener('click', () => container.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+            }
+            setupCarousel('projectsCarousel', 'projectsLeft', 'projectsRight');
+            setupCarousel('designsCarousel', 'designsLeft', 'designsRight');
+        })();
+    </script>
 </body>
+
 </html>
